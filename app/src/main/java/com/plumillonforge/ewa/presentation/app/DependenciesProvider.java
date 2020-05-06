@@ -8,7 +8,7 @@ import com.plumillonforge.ewa.domain.interfaces.MusicsRepository;
 import com.plumillonforge.ewa.domain.mappers.MusicModelMapper;
 import com.plumillonforge.ewa.domain.useCases.GetRandomMusicUseCase;
 import com.plumillonforge.ewa.presentation.asyncs.GetRandomMusicAsyncTask;
-import com.plumillonforge.ewa.presentation.viewModels.PlayerWidgetViewModel;
+import com.plumillonforge.ewa.presentation.viewModels.PlayerWidgetConfigViewModel;
 import com.plumillonforge.ewa.presentation.viewModels.ViewModelFactory;
 
 public class DependenciesProvider {
@@ -18,10 +18,6 @@ public class DependenciesProvider {
 
     public static ContentResolver providesContentResolver() {
         return EWAApp.getInstance().getContentResolver();
-    }
-
-    public static PermissionsChecker providesPermissionChecker() {
-        return new PermissionsChecker(providesContext());
     }
 
     public static ViewModelFactory providesViewModelFactory() {
@@ -36,8 +32,8 @@ public class DependenciesProvider {
         return new GetRandomMusicUseCase(providesMusicsRepository());
     }
 
-    public static PlayerWidgetViewModel providesPlayerWidgetViewModel() {
-        return new PlayerWidgetViewModel(providesRandomMusicUseCase(), new MusicModelMapper());
+    public static PlayerWidgetConfigViewModel providesPlayerWidgetConfigViewModel() {
+        return new PlayerWidgetConfigViewModel();
     }
 
     public static GetRandomMusicAsyncTask providesRandomMusicAsyncTask() {
