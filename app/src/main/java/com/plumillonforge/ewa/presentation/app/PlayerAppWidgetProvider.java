@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.view.View;
 import android.widget.RemoteViews;
 
@@ -26,7 +27,12 @@ public class PlayerAppWidgetProvider extends AppWidgetProvider {
                 case AppWidgetManager.ACTION_APPWIDGET_DELETED:
                     Intent serviceIntent = new Intent(context, PlayerService.class);
                     serviceIntent.putExtra(PlayerService.KEY_COMMAND, PlayerService.COMMAND_DESTROY);
-                    context.startService(serviceIntent);
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        context.startForegroundService(serviceIntent);
+                    } else {
+                        context.startService(serviceIntent);
+                    }
                     break;
 
                 case AppWidgetManager.ACTION_APPWIDGET_UPDATE:
