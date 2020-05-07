@@ -5,26 +5,21 @@ import android.database.Cursor;
 import com.plumillonforge.ewa.data.datasources.MediaStoreMusicsDataSource;
 import com.plumillonforge.ewa.domain.entities.MusicEntity;
 import com.plumillonforge.ewa.domain.interfaces.MusicsRepository;
-import com.plumillonforge.ewa.domain.mappers.MusicEntityMapper;
+import com.plumillonforge.ewa.domain.mappers.Mapper;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MusicsRepositoryImpl implements MusicsRepository {
-    private MediaStoreMusicsDataSource dataSource = new MediaStoreMusicsDataSource();
-    private MusicEntityMapper mapper = new MusicEntityMapper();
+    private MediaStoreMusicsDataSource dataSource;
+    private Mapper<Cursor, List<MusicEntity>> mapper;
+
+    public MusicsRepositoryImpl(MediaStoreMusicsDataSource dataSource, Mapper<Cursor, List<MusicEntity>> mapper) {
+        this.dataSource = dataSource;
+        this.mapper = mapper;
+    }
 
     @Override
     public List<MusicEntity> getMusics() {
-        Cursor musicsCursor = dataSource.getMusics();
-        List<MusicEntity> musics = new ArrayList<>();
-
-        if (musicsCursor != null) {
-            while (musicsCursor.moveToNext()) {
-                musics.add(mapper.map(musicsCursor));
-            }
-        }
-
-        return musics;
+        return mapper.map(dataSource.getMusics());
     }
 }

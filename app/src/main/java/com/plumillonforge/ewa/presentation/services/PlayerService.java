@@ -12,10 +12,14 @@ import com.plumillonforge.ewa.presentation.app.DependenciesProvider;
 import com.plumillonforge.ewa.presentation.asyncs.GetRandomMusicAsyncTask;
 import com.plumillonforge.ewa.presentation.models.MusicModel;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class PlayerService extends Service implements GetRandomMusicAsyncTask.GetMusicsAsyncTaskListener {
+    private static final String DURATION_FORMAT = "mm:ss";
+    SimpleDateFormat formatter = new SimpleDateFormat(DURATION_FORMAT);
     public static final String KEY_COMMAND = "com.plumillonforge.ewa.command";
     public static final String KEY_TITLE = "com.plumillonforge.ewa.title";
     public static final String KEY_ARTIST = "com.plumillonforge.ewa.artist";
@@ -94,10 +98,17 @@ public class PlayerService extends Service implements GetRandomMusicAsyncTask.Ge
     }
 
     private void update() {
+        String duration = "";
+
+        if (player != null) {
+            Date date = new Date(player.getCurrentPosition());
+            duration = formatter.format(date);
+        }
+
         Intent intent = new Intent(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
         intent.putExtra(PlayerService.KEY_TITLE, currentMusic.title);
         intent.putExtra(PlayerService.KEY_ARTIST, currentMusic.artist);
-        intent.putExtra(PlayerService.KEY_DURATION, player != null ? "" + player.getCurrentPosition() : "");
+        intent.putExtra(PlayerService.KEY_DURATION, duration);
         intent.putExtra(PlayerService.KEY_PLAYING, isPlaying);
         sendBroadcast(intent);
     }

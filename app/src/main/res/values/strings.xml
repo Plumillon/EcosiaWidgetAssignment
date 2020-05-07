@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Ecosia widget assigment</string>
-    <string name="error_permission">You need to grant the storage permission to the app, please accept on the dialog or go to the settings if you already denied it.</string>
+    <string name="error_permission">You need to grant the storage permission to the app, please retry and accept on the dialog or go to the app settings if you already denied it.</string>
     <string name="action_settings">Go to settings</string>
+    <string name="action_press_play">Press play !</string>
 </resources>
