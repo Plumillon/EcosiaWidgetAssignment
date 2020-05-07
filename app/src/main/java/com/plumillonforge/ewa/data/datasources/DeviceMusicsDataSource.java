@@ -6,6 +6,9 @@ import android.provider.MediaStore;
 
 import com.plumillonforge.ewa.presentation.app.DependenciesProvider;
 
+/**
+ * Created by Flavien Norindr
+ */
 public class DeviceMusicsDataSource {
     private ContentResolver contentResolver = DependenciesProvider.providesContentResolver();
     private String[] projection = {

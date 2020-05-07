@@ -12,6 +12,9 @@ import android.widget.RemoteViews;
 import com.plumillonforge.ewa.R;
 import com.plumillonforge.ewa.presentation.services.PlayerService;
 
+/**
+ * Created by Flavien Norindr
+ */
 public class PlayerAppWidgetProvider extends AppWidgetProvider {
     @Override
     public void onReceive(Context context, Intent intent) {

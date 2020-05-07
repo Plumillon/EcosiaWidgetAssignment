@@ -7,6 +7,9 @@ import android.provider.Settings;
 
 import androidx.core.app.ActivityCompat;
 
+/**
+ * Created by Flavien Norindr
+ */
 public class PermissionsChecker {
     public static void openSettings(Activity activity) {
         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);

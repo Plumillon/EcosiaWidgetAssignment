@@ -6,6 +6,9 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.plumillonforge.ewa.presentation.app.DependenciesProvider;
 
+/**
+ * Created by Flavien Norindr
+ */
 public class ViewModelFactory implements ViewModelProvider.Factory {
     @NonNull
     @Override

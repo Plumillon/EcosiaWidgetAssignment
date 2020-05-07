@@ -13,6 +13,9 @@ import com.plumillonforge.ewa.presentation.asyncs.GetRandomMusicAsyncTask;
 import com.plumillonforge.ewa.presentation.viewModels.PlayerWidgetConfigViewModel;
 import com.plumillonforge.ewa.presentation.viewModels.ViewModelFactory;
 
+/**
+ * Created by Flavien Norindr
+ */
 public class DependenciesProvider {
     public static Context providesContext() {
         return EWAApp.getInstance();
