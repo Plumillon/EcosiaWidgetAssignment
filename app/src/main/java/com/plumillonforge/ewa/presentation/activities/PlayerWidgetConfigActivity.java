@@ -21,6 +21,9 @@ import com.plumillonforge.ewa.presentation.app.PermissionsChecker;
 import com.plumillonforge.ewa.presentation.viewModels.PlayerWidgetConfigViewModel;
 import com.plumillonforge.ewa.presentation.viewModels.ViewModelFactory;
 
+/**
+ * Created by Flavien Norindr
+ */
 public class PlayerWidgetConfigActivity extends FragmentActivity {
     private ViewGroup layoutPermission;
     private Button buttonSettings;

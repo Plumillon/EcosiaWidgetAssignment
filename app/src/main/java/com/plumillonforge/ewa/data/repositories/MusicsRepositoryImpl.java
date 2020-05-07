@@ -9,6 +9,9 @@ import com.plumillonforge.ewa.domain.mappers.Mapper;
 
 import java.util.List;
 
+/**
+ * Created by Flavien Norindr
+ */
 public class MusicsRepositoryImpl implements MusicsRepository {
     private MediaStoreMusicsDataSource dataSource;
     private Mapper<Cursor, List<MusicEntity>> mapper;

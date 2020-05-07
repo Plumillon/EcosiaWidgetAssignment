@@ -8,6 +8,9 @@ import com.plumillonforge.ewa.domain.entities.MusicEntity;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Flavien Norindr
+ */
 public class MusicEntityMapper implements Mapper<Cursor, List<MusicEntity>> {
     @Override
     public List<MusicEntity> map(Cursor source) {

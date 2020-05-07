@@ -17,6 +17,9 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Created by Flavien Norindr
+ */
 public class PlayerService extends Service implements GetRandomMusicAsyncTask.GetMusicsAsyncTaskListener {
     private static final String DURATION_FORMAT = "mm:ss";
     SimpleDateFormat formatter = new SimpleDateFormat(DURATION_FORMAT);

@@ -2,6 +2,9 @@ package com.plumillonforge.ewa.presentation.models;
 
 import android.net.Uri;
 
+/**
+ * Created by Flavien Norindr
+ */
 public class MusicModel {
     public String title;
     public String artist;

@@ -1,5 +1,8 @@
 package com.plumillonforge.ewa.domain.entities;
 
+/**
+ * Created by Flavien Norindr
+ */
 public class MusicEntity {
     public String id;
     public String title;

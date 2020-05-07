@@ -6,6 +6,9 @@ import com.plumillonforge.ewa.domain.interfaces.MusicsRepository;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Created by Flavien Norindr
+ */
 public class GetRandomMusicUseCase implements UseCase<MusicEntity> {
     private MusicsRepository repository;
 
