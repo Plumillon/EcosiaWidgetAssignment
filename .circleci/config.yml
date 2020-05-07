@@ -22,15 +22,15 @@ jobs:
     <<: *config
     steps:
       - checkout
+      - run:
+          name: Chmod permissions
+          command: sudo chmod +x ./gradlew
       - persist_to_workspace:
           root: *workspace_root
           paths:
             - *source_directory
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
-      #     - run:
-      #       name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
-      #       command: sudo chmod +x ./gradlew
       - run: ./gradlew androidDependencies
       - save_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
