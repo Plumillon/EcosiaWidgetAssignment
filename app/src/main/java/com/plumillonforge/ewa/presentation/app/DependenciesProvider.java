@@ -3,8 +3,10 @@ package com.plumillonforge.ewa.presentation.app;
 import android.content.ContentResolver;
 import android.content.Context;
 
+import com.plumillonforge.ewa.data.datasources.MediaStoreMusicsDataSource;
 import com.plumillonforge.ewa.data.repositories.MusicsRepositoryImpl;
 import com.plumillonforge.ewa.domain.interfaces.MusicsRepository;
+import com.plumillonforge.ewa.domain.mappers.MusicEntityMapper;
 import com.plumillonforge.ewa.domain.mappers.MusicModelMapper;
 import com.plumillonforge.ewa.domain.useCases.GetRandomMusicUseCase;
 import com.plumillonforge.ewa.presentation.asyncs.GetRandomMusicAsyncTask;
@@ -25,7 +27,7 @@ public class DependenciesProvider {
     }
 
     private static MusicsRepository providesMusicsRepository() {
-        return new MusicsRepositoryImpl();
+        return new MusicsRepositoryImpl(new MediaStoreMusicsDataSource(), new MusicEntityMapper());
     }
 
     private static GetRandomMusicUseCase providesRandomMusicUseCase() {

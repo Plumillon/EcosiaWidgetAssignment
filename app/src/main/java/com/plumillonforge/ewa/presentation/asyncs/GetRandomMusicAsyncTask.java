@@ -27,9 +27,7 @@ public class GetRandomMusicAsyncTask extends AsyncTask<Void, Void, MusicModel> {
 
     @Override
     protected MusicModel doInBackground(Void... voids) {
-        MusicEntity music = useCase.execute();
-
-        return (music != null ? mapper.map(music) : null);
+        return mapper.map(useCase.execute());
     }
 
     @Override

@@ -8,7 +8,6 @@ import com.plumillonforge.ewa.presentation.app.DependenciesProvider;
 
 public class DeviceMusicsDataSource {
     private ContentResolver contentResolver = DependenciesProvider.providesContentResolver();
-    private String selection = MediaStore.Audio.Media.IS_MUSIC + " != 0";
     private String[] projection = {
             MediaStore.Audio.Media._ID,
             MediaStore.Audio.Media.ARTIST,

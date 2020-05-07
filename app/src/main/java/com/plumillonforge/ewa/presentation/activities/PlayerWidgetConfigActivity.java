@@ -78,6 +78,7 @@ public class PlayerWidgetConfigActivity extends FragmentActivity {
 
     private void openSettings() {
         PermissionsChecker.openSettings(this);
+        finish();
     }
 
     public void checkRuntimePermission() {

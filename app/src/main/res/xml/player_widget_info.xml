@@ -2,7 +2,7 @@
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:configure="com.plumillonforge.ewa.presentation.activities.PlayerWidgetConfigActivity"
     android:initialLayout="@layout/player_widget"
-    android:minWidth="250dp"
+    android:minWidth="320dp"
     android:minHeight="40dp"
     android:previewImage="@drawable/ecosia_logo"
     android:resizeMode="horizontal|vertical"
