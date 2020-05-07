@@ -23,12 +23,23 @@ The tech stack I chose are :
 
 ### Features
 ![Preview](app/src/main/res/drawable/preview.jpg)
-The widget offers the following feature, according to the requirements :
-  - Select a random audio from the deveice library
+The widget offers the following feature, matching the requirements :
+  - Select a random audio from the device library
   - Ability to play and pause
   - Display title and artist
   - Display the elapsed time
   - Run in background, allowing other sound to be played at the same time
-  - (BONUS) Configuration to check and grant the required permission
+  - (BONUS) Configuration to check and grant the required permissions
   - (BONUS) Ability to skip audio to play another one
   - (BONUS) Continuous integration with CircleCI
+
+### Instructions
+You can download the APK from CircleCI artifacts ([pick on the pipelines](https://app.circleci.com/pipelines/github/Plumillon/EcosiaWidgetAssignment)).
+
+Please be aware it's a debug build so you have to authorize unknown source on your device.
+
+### Possible improvisation
+Because of the short time spent, this project will act as a sample and improvisations (must) can be done :
+  - There is no comment on the code
+  - It missed some unit tests
+  - Better UI feedback on error
