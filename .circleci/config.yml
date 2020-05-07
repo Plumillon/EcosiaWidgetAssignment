@@ -1,0 +1,92 @@
+version: 2.1
+
+orbs:
+  android: circleci/android@0.2.0
+
+references:
+  workspace_root: &workspace_root
+                    ~/workspace
+  source_directory: &source_directory
+                      source
+  working_directory: &working_directory
+                       ~/workspace/source
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: *workspace_root
+  config: &config
+    executor: android/android
+    working_directory: *working_directory
+
+jobs:
+  checkout-and-cache:
+    <<: *config
+    steps:
+      - checkout
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - *source_directory
+      - restore_cache:
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
+      #     - run:
+      #       name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
+      #       command: sudo chmod +x ./gradlew
+      - run: ./gradlew androidDependencies
+      - save_cache:
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
+          paths:
+            - ~/.gradle
+
+  test_lint:
+    <<: *config
+    steps:
+      - *attach_workspace
+      - run: ./gradlew lint
+
+  test:
+    <<: *config
+    steps:
+      - *attach_workspace
+      - run: ./gradlew test
+
+  build:
+    <<: *config
+    steps:
+      - *attach_workspace
+      - run: ./gradlew build
+
+  package:
+    <<: *config
+    steps:
+      - *attach_workspace
+      - run: ./gradlew assembleDebug
+      - store_artifacts:
+          path: app/build/outputs/apk
+          destination: apk
+
+workflows:
+  Android:
+    jobs:
+      - checkout-and-cache:
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+                - /feature\/.*/
+                - /fix\/.*/
+                - /hotfix\/.*/
+                - /release\/.*/
+      - build:
+          requires:
+            - checkout-and-cache
+      - test_lint:
+          requires:
+            - build
+      - test:
+          requires:
+            - build
+      - package:
+          requires:
+            - test_lint
+            - test
