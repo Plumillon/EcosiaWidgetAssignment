@@ -6,6 +6,9 @@ import android.provider.MediaStore;
 
 import com.plumillonforge.ewa.presentation.app.DependenciesProvider;
 
+/**
+ * Created by Flavien Norindr
+ */
 public class MediaStoreMusicsDataSource {
     private ContentResolver contentResolver = DependenciesProvider.providesContentResolver();
     private String selection = MediaStore.Audio.Media.IS_MUSIC + " != 0";

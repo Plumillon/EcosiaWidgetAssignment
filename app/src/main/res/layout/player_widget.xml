@@ -1,29 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorBackground"
+    android:gravity="center_vertical"
     android:orientation="horizontal">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/textPressPlay"
+        style="@style/TextPlayer"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:gravity="center"
+        android:text="@string/action_press_play"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:id="@+id/layoutInfos"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="4dp"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/textTitle"
+            style="@style/TextPlayer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            tools:text="Very good music" />
 
         <TextView
             android:id="@+id/textArtist"
+            style="@style/TextPlayer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            tools:text="Cinema Orchestra" />
+
+        <TextView
+            android:id="@+id/textDuration"
+            style="@style/TextPlayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            tools:text="3:34" />
     </LinearLayout>
+
 
     <ImageView
         android:id="@+id/imagePlayPause"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:src="@drawable/ic_play" />
+
+    <ImageView
+        android:id="@+id/imageNext"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_next" />
 </LinearLayout>

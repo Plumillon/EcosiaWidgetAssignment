@@ -2,6 +2,9 @@ package com.plumillonforge.ewa.presentation.app;
 
 import android.app.Application;
 
+/**
+ * Created by Flavien Norindr
+ */
 public class EWAApp extends Application {
     static EWAApp REF;
 

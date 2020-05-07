@@ -9,6 +9,9 @@ import com.plumillonforge.ewa.domain.mappers.Mapper;
 import com.plumillonforge.ewa.domain.useCases.UseCase;
 import com.plumillonforge.ewa.presentation.models.MusicModel;
 
+/**
+ * Created by Flavien Norindr
+ */
 public class GetRandomMusicAsyncTask extends AsyncTask<Void, Void, MusicModel> {
     public interface GetMusicsAsyncTaskListener {
         void onSuccess(MusicModel music);
@@ -27,9 +30,7 @@ public class GetRandomMusicAsyncTask extends AsyncTask<Void, Void, MusicModel> {
 
     @Override
     protected MusicModel doInBackground(Void... voids) {
-        MusicEntity music = useCase.execute();
-
-        return (music != null ? mapper.map(music) : null);
+        return mapper.map(useCase.execute());
     }
 
     @Override
