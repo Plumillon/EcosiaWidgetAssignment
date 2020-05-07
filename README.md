@@ -43,4 +43,3 @@ Because of the short time spent, this project will act as a sample and improvisa
   - There is no comment on the code
   - It missed some unit tests
   - Better UI feedback on error
-  - Better error handling
