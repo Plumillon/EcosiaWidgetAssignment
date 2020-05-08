@@ -56,9 +56,9 @@ public class PlayerService extends Service implements GetRandomMusicAsyncTask.Ge
         super.onCreate();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            String CHANNEL_ID = "my_channel_01";
+            String CHANNEL_ID = "ecosia_widget_channel";
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID,
-                    "Channel human readable title",
+                    "Ecosia Widget Channel",
                     NotificationManager.IMPORTANCE_DEFAULT);
 
             ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE)).createNotificationChannel(channel);
