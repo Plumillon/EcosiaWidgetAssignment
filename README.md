@@ -31,6 +31,7 @@ The widget offers the following feature, matching the requirements :
   - Run in background, allowing other sound to be played at the same time
   - (BONUS) Configuration to check and grant the required permissions
   - (BONUS) Ability to skip audio to play another one
+  - (BONUS) Test Unit examples
   - (BONUS) Continuous integration with CircleCI
 
 ### Instructions
@@ -41,5 +42,4 @@ Please be aware it's a debug build so you have to authorize unknown source on yo
 ### Possible improvisation
 Because of the short time spent, this project will act as a sample and improvisations (must) can be done :
   - There is no comment on the code
-  - It missed some unit tests
   - Better UI feedback on error
